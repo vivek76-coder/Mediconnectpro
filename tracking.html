@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Specific Test History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f52ba",
+                        "primary-hover": "#0a3d8c",
+                        "medical-bg": "#f8fafc",
+                        "sidebar-bg": "#ffffff",
+                        "accent-blue": "#eff6ff"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    boxShadow: {
+                        "subtle": "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                        "card-hover": "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)"
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            @apply bg-accent-blue text-primary border-r-4 border-primary;
+        }
+    </style>
+</head>
+<body class="bg-medical-bg font-display text-slate-800 min-h-screen">
+<main class="flex-1 flex flex-col overflow-y-auto">
+<div class="p-8 max-w-6xl mx-auto max-w-7xl bg-white shadow-lg mt-10 rounded-xl">
+<div class="mb-8">
+<div>
+<h2 class="text-2xl font-extrabold text-slate-900 tracking-tight text-center mb-5">Mediconnectpro</h2>
+<div class="bg-white border border-slate-100 rounded-2xl p-7 mb-10 flex flex-col md:flex-row items-center gap-8 shadow-subtle">
+<div class="size-28 rounded-2xl bg-slate-100 p-1 shadow-inner flex-shrink-0">
+<img alt="John Doe Profile" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXD8RVtzjdwhB_uKS7jjdy8jukn7WLFVv2GH2Tn4P9jlODYUUIZnorTGyfQOAknT-czTjotGGZVx0kNm-UL7PWU--WYT2l70tGRH6hKD9kKxmZztWqmHLi8zFK-ghZpV9ow1tH1drDbjh_MjpI7TL4cpy32dnYpxynQ-ZfQFS6_dWqmHEQucyjWteedAHdcn1rlB-RlKCZdYoIdehOzsoBfezJsoJF9-4xQRXQip8u2Erj1jPDmdRJ8-MJI4QHZwHqbjVyeoZKgvY9"/>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-4 gap-y-6 md:gap-x-12 w-full">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Patient Details</p>
+<p class="text-xl font-extrabold text-slate-900 mb-0.5">Johnathan Doe</p>
+<p class="text-sm text-primary font-bold">UID: #PT-88219</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Demographics</p>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-sm font-bold text-slate-700">45Y / Male</span>
+</div>
+<p class="text-sm font-semibold text-slate-600">Blood Group: <span class="text-red-600 font-bold">O+</span></p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Contact Information</p>
+<p class="text-sm font-bold text-slate-700">+1 234 567 8900</p>
+<p class="text-xs text-slate-500 font-medium">j.doe@example.com</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Quick Summary</p>
+<p class="text-sm font-bold text-slate-700">Total Orders: 12</p>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="size-2 rounded-full bg-green-500"></span>
+<p class="text-xs text-green-600 font-bold">Healthy History</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between px-2 mb-5">
+<h3 class="text-lg font-extrabold text-slate-900">Diagnostic Timeline</h3>
+<div class="flex bg-slate-100 p-1 rounded-xl">
+<button class="px-4 py-1.5 text-xs font-bold bg-white text-primary rounded-lg shadow-sm">All</button>
+<button class="px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-700 rounded-lg transition-colors">Completed</button>
+<button class="px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-700 rounded-lg transition-colors">Pending</button>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group shadow-subtle">
+<div class="p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-5 w-full md:w-auto">
+<div class="size-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">hematology</span>
+</div>
+<div>
+<h4 class="font-extrabold text-slate-900 text-lg">Complete Blood Count (CBC)</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-tight">Order #2024-5519</span>
+<span class="text-slate-300">•</span>
+<span class="text-[11px] font-bold text-slate-500">Dr. Richards</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-8 w-full md:w-auto">
+<div class="text-center sm:text-right flex-shrink-0">
+<p class="text-sm font-extrabold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Collected</p>
+</div>
+<div class="flex-shrink-0">
+<span class="px-4 py-1.5 rounded-full bg-green-50 text-green-600 text-[11px] font-extrabold flex items-center gap-1.5 border border-green-100">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">check_circle</span>
+                                    COMPLETED
+                                </span>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-extrabold hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View Report
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group shadow-subtle">
+<div class="p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-5 w-full md:w-auto">
+<div class="size-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<div>
+<h4 class="font-extrabold text-slate-900 text-lg">Lipid Profile &amp; Cholesterol</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-tight">Order #2024-5510</span>
+<span class="text-slate-300">•</span>
+<span class="text-[11px] font-bold text-slate-500">Dr. Richards</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-8 w-full md:w-auto">
+<div class="text-center sm:text-right flex-shrink-0">
+<p class="text-sm font-extrabold text-slate-900">Oct 22, 2023</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Collected</p>
+</div>
+<div class="flex-shrink-0">
+<span class="px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-[11px] font-extrabold flex items-center gap-1.5 border border-orange-100">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">pending</span>
+                                    IN PROGRESS
+                                </span>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-slate-100 text-slate-400 cursor-not-allowed rounded-xl text-sm font-extrabold" disabled="">
+<span class="material-symbols-outlined text-sm">lock</span>
+                                Locked
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group shadow-subtle">
+<div class="p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-5 w-full md:w-auto">
+<div class="size-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">vital_signs</span>
+</div>
+<div>
+<h4 class="font-extrabold text-slate-900 text-lg">Glucose - Fasting &amp; PP</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-tight">Order #2024-5480</span>
+<span class="text-slate-300">•</span>
+<span class="text-[11px] font-bold text-slate-500">Dr. Mitchell</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-8 w-full md:w-auto">
+<div class="text-center sm:text-right flex-shrink-0">
+<p class="text-sm font-extrabold text-slate-900">Oct 15, 2023</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Collected</p>
+</div>
+<div class="flex-shrink-0">
+<span class="px-4 py-1.5 rounded-full bg-green-50 text-green-600 text-[11px] font-extrabold flex items-center gap-1.5 border border-green-100">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">check_circle</span>
+                                    COMPLETED
+                                </span>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-extrabold hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View Report
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group shadow-subtle">
+<div class="p-5 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-5 w-full md:w-auto">
+<div class="size-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">experiment</span>
+</div>
+<div>
+<h4 class="font-extrabold text-slate-900 text-lg">Thyroid Panel (T3, T4, TSH)</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[11px] font-bold text-slate-400 uppercase tracking-tight">Order #2024-5401</span>
+<span class="text-slate-300">•</span>
+<span class="text-[11px] font-bold text-slate-500">Dr. Mitchell</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-8 w-full md:w-auto">
+<div class="text-center sm:text-right flex-shrink-0">
+<p class="text-sm font-extrabold text-slate-900">Sep 28, 2023</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Collected</p>
+</div>
+<div class="flex-shrink-0">
+<span class="px-4 py-1.5 rounded-full bg-green-50 text-green-600 text-[11px] font-extrabold flex items-center gap-1.5 border border-green-100">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">check_circle</span>
+                                    COMPLETED
+                                </span>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-extrabold hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View Report
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="px-10 py-3.5 bg-white border border-slate-200 rounded-2xl text-sm font-bold text-slate-600 hover:bg-slate-50 hover:text-primary hover:border-primary/20 transition-all shadow-sm">
+                    Load Archive History
+                </button>
+</div>
+</div>
+</main>
+
+</body></html>
