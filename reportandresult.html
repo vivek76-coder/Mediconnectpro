@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Multi-Test Pathology Report View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<main class="flex-1 px-10 py-8 max-w-[1440px] mx-auto w-full">
+<div class="flex flex-col gap-4 mb-8">
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white text-3xl font-black leading-tight tracking-tight">Mediconnectpro</h1>
+</div>
+<div class="flex gap-3">
+<button class="flex gap-2 items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-slate-200 transition-all border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-lg">print</span>
+<span>Print Report</span>
+</button>
+<button class="flex gap-2 items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-slate-200 transition-all border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-lg">share</span>
+<span>Share with Doctor</span>
+</button>
+<button class="flex gap-2 items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold hover:bg-blue-600 shadow-sm transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+</div>
+<!-- PATIENT-INFROMATION-->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 mb-8 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="bg-primary/10 rounded-full h-20 w-20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">person</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold">Johnathan Doe</h2>
+<p class="text-slate-500 font-medium">Patient ID: P-88291 • Male, 45 Years</p>
+<div class="flex gap-4 mt-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                    Blood Group: O+
+                                </span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-8 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-slate-800 pt-6 lg:pt-0 lg:pl-8">
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-1">Referring Doctor</p>
+<p class="text-slate-900 dark:text-white font-semibold">Dr. Sarah Williams</p>
+</div>
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-1">Sample Date</p>
+<p class="text-slate-900 dark:text-white font-semibold">Oct 22, 2023</p>
+</div>
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-1">Collection Type</p>
+<p class="text-slate-900 dark:text-white font-semibold">Venous Blood</p>
+</div>
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-wider font-semibold mb-1">Lab Facility</p>
+<p class="text-slate-900 dark:text-white font-semibold">Central Diagnostic</p>
+</div>
+</div>
+</div>
+</div>
+<!-- TEST-LIST-STARTS-HERE-->
+<div class="grid grid-cols-1 gap-8 items-start">
+<div class="col-span-2 space-y-8">
+    <!-- REPORT-1-->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+<h3 class="text-slate-900 dark:text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                                Complete Blood Count (CBC)
+                            </h3>
+<span class="text-xs font-medium text-slate-500">Method: Automated Flow Cytometry</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/30">
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Test Name</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Result</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Reference Range</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Unit</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Flag</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">Hemoglobin</td>
+<td class="px-6 py-4 text-sm text-slate-900 dark:text-slate-200 font-bold">14.2</td>
+<td class="px-6 py-4 text-sm text-slate-500">13.5 - 17.5</td>
+<td class="px-6 py-4 text-sm text-slate-500">g/dL</td>
+<td class="px-6 py-4 text-sm font-bold text-green-500">Normal</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">Total WBC Count</td>
+<td class="px-6 py-4 text-sm text-red-600 dark:text-red-400 font-black">11,200</td>
+<td class="px-6 py-4 text-sm text-slate-500">4,000 - 10,000</td>
+<td class="px-6 py-4 text-sm text-slate-500">cells/cu.mm</td>
+<td class="px-6 py-4 text-sm font-bold text-red-600 dark:text-red-400">High</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">Platelet Count</td>
+<td class="px-6 py-4 text-sm text-slate-900 dark:text-slate-200 font-bold">250,000</td>
+<td class="px-6 py-4 text-sm text-slate-500">150,000 - 450,000</td>
+<td class="px-6 py-4 text-sm text-slate-500">cells/cu.mm</td>
+<td class="px-6 py-4 text-sm font-bold text-green-500">Normal</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">RBC Count</td>
+<td class="px-6 py-4 text-sm text-slate-900 dark:text-slate-200 font-bold">5.1</td>
+<td class="px-6 py-4 text-sm text-slate-500">4.5 - 5.5</td>
+<td class="px-6 py-4 text-sm text-slate-500">mill/cu.mm</td>
+<td class="px-6 py-4 text-sm font-bold text-green-500">Normal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- REPORT-2-->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+<h3 class="text-slate-900 dark:text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">blood_pressure</span>
+                                Lipid Profile
+                            </h3>
+<span class="text-xs font-medium text-slate-500">Method: Spectrophotometry</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/30">
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Test Name</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Result</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Reference Range</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Unit</th>
+<th class="px-6 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Flag</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">Total Cholesterol</td>
+<td class="px-6 py-4 text-sm text-red-600 dark:text-red-400 font-black">215</td>
+<td class="px-6 py-4 text-sm text-slate-500">125 - 200</td>
+<td class="px-6 py-4 text-sm text-slate-500">mg/dL</td>
+<td class="px-6 py-4 text-sm font-bold text-red-600 dark:text-red-400">High</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">HDL Cholesterol</td>
+<td class="px-6 py-4 text-sm text-slate-900 dark:text-slate-200 font-bold">45</td>
+<td class="px-6 py-4 text-sm text-slate-500">&gt; 40</td>
+<td class="px-6 py-4 text-sm text-slate-500">mg/dL</td>
+<td class="px-6 py-4 text-sm font-bold text-green-500">Normal</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">LDL Cholesterol</td>
+<td class="px-6 py-4 text-sm text-red-600 dark:text-red-400 font-black">142</td>
+<td class="px-6 py-4 text-sm text-slate-500">&lt; 100</td>
+<td class="px-6 py-4 text-sm text-slate-500">mg/dL</td>
+<td class="px-6 py-4 text-sm font-bold text-red-600 dark:text-red-400">High</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-200">Triglycerides</td>
+<td class="px-6 py-4 text-sm text-slate-900 dark:text-slate-200 font-bold">148</td>
+<td class="px-6 py-4 text-sm text-slate-500">&lt; 150</td>
+<td class="px-6 py-4 text-sm text-slate-500">mg/dL</td>
+<td class="px-6 py-4 text-sm font-bold text-green-500">Normal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-primary/5 rounded-xl border border-primary/20 p-6">
+    <h3 class="text-slate-900 dark:text-white font-bold mb-3 text-sm">Need help understanding these results?</h3>
+    <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Contact our clinical support desk for clarification on diagnostic terminology.</p>
+    <button class="w-full bg-white dark:bg-slate-900 text-primary border border-primary/20 rounded-lg py-2 text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                                Contact Support
+                            </button>
+    </div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
