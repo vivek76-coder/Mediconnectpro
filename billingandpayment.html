@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pathology Billing and Payment Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<main class="max-w-[1440px] mx-auto w-full px-6 py-6 lg:px-10">
+<!-- logo -->
+<h1 class="text-xl text-center font-bold text-slate-900 dark:text-white">Mediconnectpro</h1>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Left Main Content (Invoice Details) -->
+<div class="lg:col-span-3 space-y-6">
+<!-- Patient Details Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex gap-5 items-center">
+<div class="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">person</span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">John Doe</h1>
+<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">Pending Payment</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">
+<span class="font-medium">Patient ID:</span> PID-10293  |  
+                                        <span class="font-medium">Age/Sex:</span> 45Y / Male  |  
+                                        <span class="font-medium">Ref. By:</span> Dr. Sarah Smith
+                                    </p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span> Edit Details
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">history</span> History
+                                </button>
+</div>
+</div>
+</div>
+<!-- Invoice Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/30">
+<h3 class="font-bold text-slate-800 dark:text-slate-200">Test Items</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-lg">add_circle</span> Add More Tests
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Test Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Qty</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Unit Price</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Discount (%)</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Total Amount</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4">
+<div class="font-medium text-slate-900 dark:text-slate-200">Complete Blood Count (CBC)</div>
+<div class="text-xs text-slate-400">Hematology Module</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-400">1</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">$45.00</td>
+<td class="px-6 py-4">
+<input class="w-20 px-2 py-1 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-1 focus:ring-primary outline-none" type="number" value="0"/>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-slate-900 dark:text-white">$45.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4">
+<div class="font-medium text-slate-900 dark:text-slate-200">Lipid Profile</div>
+<div class="text-xs text-slate-400">Biochemistry</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-400">1</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">$80.00</td>
+<td class="px-6 py-4">
+<input class="w-20 px-2 py-1 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-1 focus:ring-primary outline-none" type="number" value="10"/>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-slate-900 dark:text-white">$72.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4">
+<div class="font-medium text-slate-900 dark:text-slate-200">HbA1c</div>
+<div class="text-xs text-slate-400">Diabetes Management</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-400">1</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">$35.00</td>
+<td class="px-6 py-4">
+<input class="w-20 px-2 py-1 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-1 focus:ring-primary outline-none" type="number" value="0"/>
+</td>
+<td class="px-6 py-4 text-right font-semibold text-slate-900 dark:text-white">$35.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bill Summary Section -->
+<div class="bg-slate-100/50 dark:bg-slate-800/40 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h4 class="font-bold text-slate-800 dark:text-slate-200 mb-3">Notes / Instructions</h4>
+<textarea class="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 text-sm resize-none focus:ring-primary outline-none" placeholder="Add any billing notes or special insurance instructions here..." rows="3"></textarea>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Sub-total</span>
+<span class="font-medium text-slate-900 dark:text-white">$152.00</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Applied Taxes (GST 5%)</span>
+<span class="font-medium text-slate-900 dark:text-white">$7.60</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400 pt-3 border-t border-slate-200 dark:border-slate-700">
+<span class="font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">Total Payable Amount</span>
+<span class="font-bold text-2xl text-primary">$159.60</span>
+</div>
+<div class="flex justify-between text-green-600 dark:text-green-400 text-sm font-medium">
+<span>Amount Paid</span>
+<span>$0.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar (Payment Processing) -->
+<div class="lg:col-span-1">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 sticky top-24">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span> Process Payment
+                            </h3>
+</div>
+<div class="p-6 space-y-6">
+<!-- Payment Method Grid -->
+<div>
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3 block">Payment Method</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-primary bg-primary/5 text-primary">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-xs font-bold">Cash</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 text-slate-500 transition-all">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="text-xs font-bold">Card</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 text-slate-500 transition-all">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="text-xs font-bold">UPI</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-lg border-2 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 text-slate-500 transition-all">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-xs font-bold">Insurance</span>
+</button>
+</div>
+</div>
+<!-- Transaction Inputs -->
+<div class="space-y-4">
+<div>
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1 block">Amount Received</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+<input class="w-full pl-8 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-lg font-bold focus:ring-primary outline-none" type="number" value="160"/>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-slate-50 dark:bg-slate-800">
+<span class="text-sm text-slate-500">Change to return</span>
+<span class="text-lg font-bold text-slate-900 dark:text-white">$0.40</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-3 pt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">task_alt</span> Process Payment
+                                </button>
+<button class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">receipt</span> Generate Receipt
+                                </button>
+<button class="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs font-medium py-2">
+<span class="material-symbols-outlined text-sm">print</span> Print Preview (Alt+P)
+                                </button>
+</div>
+<!-- Help / Shortcuts -->
+<div class="border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2 text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+<span class="material-symbols-outlined text-sm">keyboard</span> Shortcuts
+                                </div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 text-[10px] bg-slate-50 dark:bg-slate-800">F8: Process</span>
+<span class="px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 text-[10px] bg-slate-50 dark:bg-slate-800">F9: Receipt</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-6 text-center text-slate-400 text-sm border-t border-slate-100 dark:border-slate-800">
+<p>© 2024 PathoSystem Billing Module. All rights reserved.</p>
+</footer>
+</div>
+</body></html>
