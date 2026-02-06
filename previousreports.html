@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pathology Previous Reports Archive</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Font: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<main class="max-w-[1440px] mx-auto p-6 flex flex-col gap-6">
+<h1 class="text-xl font-bold text-slate-900 text-center">Mediconnectpro</h1>    
+<!-- Filter Bar -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Date Range</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">calendar_today</span>
+<input class="w-full pl-10 pr-3 py-2 text-sm border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-lg focus:ring-primary focus:border-primary" placeholder="Start - End Date" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Test Category</label>
+<select class="w-full py-2 text-sm border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-lg focus:ring-primary focus:border-primary">
+<option>All Categories</option>
+<option>Hematology</option>
+<option>Biochemistry</option>
+<option>Histopathology</option>
+<option>Microbiology</option>
+<option>Cytology</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Report Status</label>
+<select class="w-full py-2 text-sm border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-lg focus:ring-primary focus:border-primary">
+<option>All Statuses</option>
+<option>Finalized</option>
+<option>Amended</option>
+<option>Preliminary</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Patient ID / Name</label>
+<input class="w-full py-2 text-sm border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-lg focus:ring-primary focus:border-primary" placeholder="Enter search term..." type="text"/>
+</div>
+<div class="flex items-end gap-2">
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 py-2 rounded-lg text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Clear</button>
+<button class="flex-1 bg-primary/10 text-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary hover:text-white transition-colors">Apply Filters</button>
+</div>
+</div>
+</div>
+<!--EXPORT CSV & NEW REPORT -->
+<div class="flex flex-col md:flex-row md:items-end justify-end gap-4 ">
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-lg">ios_share</span> Export CSV
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-blue-600 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-lg">add</span> New Report
+                </button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Report Date</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Test Type</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Referring Doctor</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium">Oct 24, 2023</div>
+<div class="text-xs text-slate-500">09:45 AM</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-red-400"></span>
+<span class="text-sm">Complete Blood Count (CBC)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">Dr. Arthur Seward</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Finalized</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-md transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium">Oct 23, 2023</div>
+<div class="text-xs text-slate-500">02:15 PM</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-amber-400"></span>
+<span class="text-sm">Liver Function Test</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">Dr. Abraham Van Helsing</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">Amended</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-md transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium">Oct 23, 2023</div>
+<div class="text-xs text-slate-500">11:00 AM</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-blue-400"></span>
+<span class="text-sm">Renal Panel</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">Dr. John Seward</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Finalized</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-md transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium">Oct 22, 2023</div>
+<div class="text-xs text-slate-500">04:30 PM</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-purple-400"></span>
+<span class="text-sm">Thyroid Profile (T3, T4, TSH)</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">Dr. Arthur Seward</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Finalized</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-md transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium">Oct 21, 2023</div>
+<div class="text-xs text-slate-500">08:15 AM</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-green-400"></span>
+<span class="text-sm">Lipid Profile</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">Dr. John Seward</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Finalized</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded-md transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors" title="Download PDF">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<p class="text-sm text-slate-500">Showing 1 to 5 of 1,248 entries</p>
+<div class="flex items-center gap-1">
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">first_page</span>
+</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-3.5 py-1.5 bg-primary text-white rounded-lg text-sm font-bold">1</button>
+<button class="px-3.5 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm font-medium">2</button>
+<button class="px-3.5 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm font-medium">3</button>
+<span class="px-2 text-slate-400">...</span>
+<button class="px-3.5 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm font-medium">250</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">last_page</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Info Banner -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary/5 dark:bg-primary/10 p-5 rounded-xl border border-primary/20 flex items-center gap-4">
+<div class="size-12 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">description</span>
+</div>
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Total Archived</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white">12,482</p>
+</div>
+</div>
+<div class="bg-emerald-50 dark:bg-emerald-900/10 p-5 rounded-xl border border-emerald-100 dark:border-emerald-800/30 flex items-center gap-4">
+<div class="size-12 bg-emerald-500 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Finalized This Month</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white">428</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 shadow-sm">
+<div class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined text-2xl">update</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Storage Usage</p>
+<div class="flex items-end gap-2">
+<p class="text-2xl font-black text-slate-900 dark:text-white">64%</p>
+<div class="w-24 h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+<div class="h-full bg-primary rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Preview Drawer (Mockup) -->
+<div class="fixed inset-y-0 right-0 w-[400px] bg-white dark:bg-slate-900 shadow-2xl z-50 transform translate-x-full translate-x-0 hidden border-l border-slate-200 dark:border-slate-800">
+<div class="h-full flex flex-col">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<h3 class="font-bold text-lg">Report Preview</h3>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6">
+<div class="mb-8">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-3">Patient Summary</h4>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+<p class="font-bold text-slate-900 dark:text-white">Jonathan Harker</p>
+<p class="text-sm text-slate-500">Age: 42 • Gender: Male</p>
+<p class="text-sm text-slate-500">ID: PATH-88291</p>
+</div>
+</div>
+<div class="mb-8">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-3">Clinical Finding</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="text-sm">Hemoglobin</span>
+<span class="text-sm font-bold text-red-500">11.2 g/dL</span>
+</div>
+<div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="text-sm">WBC Count</span>
+<span class="text-sm font-bold">8.4 x 10³/µL</span>
+</div>
+<div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="text-sm">Platelet Count</span>
+<span class="text-sm font-bold">210 x 10³/µL</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-3">Interpretation</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Results indicate mild normocytic anemia. All other parameters within normal limits. Recommend clinical correlation with iron profile.
+                    </p>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-slate-800 flex gap-3">
+<button class="flex-1 bg-primary text-white py-2.5 rounded-lg text-sm font-bold">Open Full Report</button>
+<button class="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+<span class="material-symbols-outlined">print</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
