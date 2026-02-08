@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Test Booking and Management Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0284c7",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-outlined text-white text-lg">science</span>
+</div>
+<span class="font-bold text-xl tracking-tight">PathoHub</span>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg font-medium" href="#">
+<span class="material-icons-outlined text-sm">bookmark_add</span>
+                    Test Booking
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-sm">people</span>
+                    Patients
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-sm">inventory_2</span>
+                    Inventory
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-sm">analytics</span>
+                    Reports
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-icons-outlined text-sm">settings</span>
+                    Admin Settings
+                </a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img alt="User Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2wrbT8lvfGXgJk_NgqYMwpgbO5GtocMNzyDG_urPnglAfLyiXfzYuusbT3ZG4evvhG6s0d6GSeacfWl1RMBAwxD1DQN8f_wtMGqfvkjEzdbWeN9Xn5dFqgNJot4IbbhW2ivWJIoHTn4l1YiMQO4Q4aMDxCGDba5DgwiOpSecyT-nym6U5NiyGDlWzrgPqZlx0IHV0iRl4geuRrwEik6A0DLfYhJqywK7RQKZl3yMIsQpcVbc1-w55zUgxcnSJB9qkrmRzjv97FeUN"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Dr. Sarah Admin</p>
+<p class="text-xs text-slate-500 truncate">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-primary">diamond</span>
+<h1 class="text-lg font-bold">1. Test Booking</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-icons-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<div class="max-w-7xl mx-auto space-y-6">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-md font-semibold flex items-center gap-2">
+<span class="material-icons-outlined text-primary">person_search</span>
+                                    Patient Information
+                                </h2>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 bg-primary text-white text-xs font-medium rounded-md hover:bg-sky-700 flex items-center gap-1">
+<span class="material-icons-outlined text-sm">person_add</span> New Patient
+                                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 mb-1">Search Patient (Name / Mobile / ID)</label>
+<div class="relative">
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary text-sm" placeholder="Start typing name..." type="text"/>
+<span class="material-icons-outlined absolute left-3 top-2.5 text-slate-400 text-sm">search</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium text-slate-500 mb-1">Referral Doctor</label>
+<select class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary text-sm">
+<option>Self / Walk-in</option>
+<option>Dr. John Doe (General Hospital)</option>
+<option>Dr. Jane Smith (Heart Care Center)</option>
+<option>Dr. Michael Brown (Med-Plus Clinic)</option>
+</select>
+</div>
+</div>
+<div class="mt-6 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 grid grid-cols-3 gap-4">
+<div>
+<p class="text-xs text-slate-500">Selected Patient</p>
+<p class="text-sm font-semibold">Robert Wilson (M, 45Y)</p>
+</div>
+<div>
+<p class="text-xs text-slate-500">Contact</p>
+<p class="text-sm">+1 234 567 8901</p>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors"><span class="material-icons-outlined text-sm">edit</span></button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors"><span class="material-icons-outlined text-sm">delete</span></button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+<h2 class="text-md font-semibold flex items-center gap-2 mb-4">
+<span class="material-icons-outlined text-primary">local_shipping</span>
+                                Logistics &amp; Priority
+                            </h2>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-medium text-slate-500 mb-2">Priority Level</label>
+<div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+<button class="flex-1 py-1.5 text-xs font-medium bg-white dark:bg-slate-700 shadow-sm rounded-md text-slate-700 dark:text-slate-100">Normal</button>
+<button class="flex-1 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Urgent</button>
+<button class="flex-1 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">STAT</button>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="text-sm font-medium">Home Collection</p>
+<p class="text-xs text-slate-500">Phlebotomist visit needed</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" id="ext-lab" type="checkbox"/>
+<label class="text-sm font-medium" for="ext-lab">External Lab Referral</label>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                                        Partner Lab
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<h2 class="text-md font-semibold flex items-center gap-2">
+<span class="material-icons-outlined text-primary">biotech</span>
+                                Test Selection &amp; Packages
+                            </h2>
+<div class="flex flex-wrap gap-2">
+<span class="bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 px-3 py-1 rounded-full text-xs font-medium border border-sky-100 dark:border-sky-800">CBC (Complete Blood Count)</span>
+<span class="bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 px-3 py-1 rounded-full text-xs font-medium border border-sky-100 dark:border-sky-800">Lipid Profile</span>
+<button class="text-primary text-xs font-medium hover:underline">+ Add More</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-slate-100 dark:border-slate-800 text-slate-500 text-xs uppercase tracking-wider">
+<tr>
+<th class="pb-3 px-2 font-semibold">Test / Package Name</th>
+<th class="pb-3 px-2 font-semibold text-right">Standard Price</th>
+<th class="pb-3 px-2 font-semibold text-right w-32">Price Override</th>
+<th class="pb-3 px-2 font-semibold text-right w-32">Discount (%)</th>
+<th class="pb-3 px-2 font-semibold text-right">Final Total</th>
+<th class="pb-3 px-2 font-semibold text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="py-4 px-2">
+<div class="font-medium">Complete Blood Count (CBC)</div>
+<div class="text-xs text-slate-500">Hematology • Turnaround: 4h</div>
+</td>
+<td class="py-4 px-2 text-right">$45.00</td>
+<td class="py-4 px-2">
+<input class="w-full text-right py-1.5 px-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-sm" type="number" value="45.00"/>
+</td>
+<td class="py-4 px-2">
+<input class="w-full text-right py-1.5 px-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-sm" type="number" value="0"/>
+</td>
+<td class="py-4 px-2 text-right font-semibold">$45.00</td>
+<td class="py-4 px-2 text-center">
+<div class="flex justify-center gap-2">
+<button class="p-1 hover:text-primary transition-colors" title="Edit"><span class="material-icons-outlined text-sm">edit</span></button>
+<button class="p-1 hover:text-red-500 transition-colors" title="Cancel"><span class="material-icons-outlined text-sm">block</span></button>
+<button class="p-1 hover:text-amber-500 transition-colors" title="Hold"><span class="material-icons-outlined text-sm">pause</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-4 px-2">
+<div class="font-medium">Executive Health Package</div>
+<div class="text-xs text-slate-500">Bundle (12 Tests) • Turnaround: 24h</div>
+</td>
+<td class="py-4 px-2 text-right">$250.00</td>
+<td class="py-4 px-2">
+<input class="w-full text-right py-1.5 px-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-sm" type="number" value="250.00"/>
+</td>
+<td class="py-4 px-2">
+<input class="w-full text-right py-1.5 px-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-sm" type="number" value="10"/>
+</td>
+<td class="py-4 px-2 text-right font-semibold text-emerald-600 dark:text-emerald-400">$225.00</td>
+<td class="py-4 px-2 text-center">
+<div class="flex justify-center gap-2">
+<button class="p-1 hover:text-primary transition-colors" title="Edit"><span class="material-icons-outlined text-sm">edit</span></button>
+<button class="p-1 hover:text-red-500 transition-colors" title="Cancel"><span class="material-icons-outlined text-sm">block</span></button>
+<button class="p-1 hover:text-green-500 transition-colors" title="Resume"><span class="material-icons-outlined text-sm">play_arrow</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="flex items-center gap-2 px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary/5 transition-colors">
+<span class="material-icons-outlined text-sm">add_circle_outline</span>
+                                Add-on Test
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<div class="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Admin Overrides Active</p>
+<ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-outlined text-emerald-500 text-xs mt-0.5">check_circle</span>
+                                    Permission to override base pricing enabled
+                                </li>
+<li class="flex items-start gap-2">
+<span class="material-icons-outlined text-emerald-500 text-xs mt-0.5">check_circle</span>
+                                    Late booking modification (Pre-processing) active
+                                </li>
+<li class="flex items-start gap-2">
+<span class="material-icons-outlined text-emerald-500 text-xs mt-0.5">check_circle</span>
+                                    External referral marking allowed for this session
+                                </li>
+</ul>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-lg ring-1 ring-slate-200 dark:ring-slate-800">
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Subtotal</span>
+<span class="font-medium">$295.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Discount Applied</span>
+<span class="text-red-500 font-medium">-$25.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Service Fee (Home Coll.)</span>
+<span class="font-medium">$0.00</span>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Total Payable</p>
+<p class="text-3xl font-bold text-primary">$270.00</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 border border-slate-300 dark:border-slate-700 text-sm font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Save Draft</button>
+<button class="px-8 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-sky-700 shadow-md shadow-sky-500/20 transition-all active:scale-95">Confirm Booking</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Test Tracking Control Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0EA5E9",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        secondary: "#6366F1",
+                        danger: "#EF4444",
+                        warning: "#F59E0B",
+                        success: "#10B981"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex transition-colors duration-200">
+<main class="flex-1 flex flex-col min-w-0">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-10">
+<div class="flex items-center justify-center gap-4 shrink w-full">
+<h1 class="text-lg font-semibold flex items-center gap-2">
+                    Mediconnectpro
+                </h1>
+</div>
+<div class="flex items-center gap-5">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors" onclick="toggleDarkMode()">
+<span class="material-icons-outlined dark:hidden">dark_mode</span>
+<span class="material-icons-outlined hidden dark:block text-warning">light_mode</span>
+</button>
+<div class="relative">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+<span class="material-icons-outlined text-sm">add</span> New Request
+                </button>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Active Tests</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold">1,284</h3>
+<span class="text-success text-xs font-semibold flex items-center"><span class="material-icons-outlined text-xs">trending_up</span> +12%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Pending Assignment</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold">42</h3>
+<span class="text-warning text-xs font-semibold flex items-center">High Priority</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm border-l-4 border-l-danger">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Escalated Alerts</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold text-danger">08</h3>
+<button class="text-primary text-xs font-semibold hover:underline">View All</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Workflow Toggles</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-sm font-medium">Global Override</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="flex-1 px-6 pb-6 overflow-hidden flex flex-col">
+<div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm flex flex-col flex-1 overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-slate-700 flex flex-wrap gap-4 items-center justify-between">
+<div class="flex items-center gap-4 flex-1 min-w-[300px]">
+<div class="relative flex-1">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary transition-all" placeholder="Search by PID, Patient Name, or Test ID..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-icons-outlined text-lg">filter_alt</span> Filters
+                        </button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 font-medium mr-2">Admin Override Controls:</span>
+<div class="flex items-center gap-4">
+<label class="inline-flex items-center cursor-pointer gap-2">
+<input class="rounded border-slate-300 dark:border-slate-600 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-xs font-semibold">Bypass Workflow</span>
+</label>
+<button class="text-xs bg-danger/10 text-danger hover:bg-danger/20 px-3 py-1 rounded-full font-bold transition-colors">Emergency Clear</button>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-auto custom-scrollbar">
+<table class="w-full text-left border-collapse min-w-[1200px]">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-900/50 sticky top-0 z-10">
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">Test Info</th>
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 w-44">Sample Status</th>
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">Personnel Assignment</th>
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 w-52">TAT &amp; Delay Management</th>
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">Workflow Controls</th>
+<th class="px-4 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700/50">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-4 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">CBC-0248-X</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Patient: John Doe (PID-9921)</span>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-danger/10 text-danger text-[10px] font-bold rounded border border-danger/20 animate-pulse">CRITICAL</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<select class="w-full text-xs font-medium bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md focus:ring-primary focus:border-primary">
+<option value="collected">Collected</option>
+<option selected="" value="received">Received</option>
+<option value="in-process">In-Process</option>
+<option value="completed">Completed</option>
+</select>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Tech:</span>
+<button class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-primary hover:text-white px-2 py-1 rounded transition-colors flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">person_add</span> R. Smith
+                                            </button>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Path:</span>
+<button class="text-xs border border-dashed border-slate-300 dark:border-slate-600 px-2 py-1 rounded hover:border-primary hover:text-primary transition-all flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">add_circle_outline</span> Assign
+                                            </button>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<input class="flex-1 text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Override TAT (hrs)" type="text" value="4h"/>
+<span class="material-icons-outlined text-slate-300 text-sm">schedule</span>
+</div>
+<input class="w-full text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Add delay reason..." type="text"/>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Flow Override</span>
+<label class="relative inline-flex items-center cursor-pointer scale-75">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="text-[10px] bg-primary/10 text-primary border border-primary/30 py-1 rounded font-bold uppercase hover:bg-primary hover:text-white transition-all">Change Status</button>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-danger bg-danger/10 hover:bg-danger hover:text-white border border-danger/20 py-1 px-2 rounded-md transition-all">
+<span class="material-icons-outlined text-sm">block</span> Approve Reject
+                                        </button>
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-secondary bg-secondary/10 hover:bg-secondary hover:text-white border border-secondary/20 py-1 px-2 rounded-md transition-all">
+<span class="material-icons-outlined text-sm">replay</span> Re-collection
+                                        </button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-4 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">LIP-9421-B</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Patient: Mary Jane (PID-8842)</span>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-success/10 text-success text-[10px] font-bold rounded border border-success/20">ROUTINE</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<select class="w-full text-xs font-medium bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md focus:ring-primary focus:border-primary">
+<option value="collected">Collected</option>
+<option value="received">Received</option>
+<option selected="" value="in-process">In-Process</option>
+<option value="completed">Completed</option>
+</select>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Tech:</span>
+<button class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-primary hover:text-white px-2 py-1 rounded transition-colors flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">edit</span> A. Wong
+                                            </button>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Path:</span>
+<button class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-primary hover:text-white px-2 py-1 rounded transition-colors flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">edit</span> Dr. Gupta
+                                            </button>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<input class="flex-1 text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Override TAT (hrs)" type="text"/>
+<span class="material-icons-outlined text-slate-300 text-sm">schedule</span>
+</div>
+<input class="w-full text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Add delay reason..." type="text" value="Equipment maintenance"/>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Flow Override</span>
+<label class="relative inline-flex items-center cursor-pointer scale-75">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="text-[10px] bg-primary/10 text-primary border border-primary/30 py-1 rounded font-bold uppercase hover:bg-primary hover:text-white transition-all">Change Status</button>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-slate-400 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 py-1 px-2 rounded-md cursor-not-allowed">
+<span class="material-icons-outlined text-sm">block</span> Approve Reject
+                                        </button>
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-secondary bg-secondary/10 hover:bg-secondary hover:text-white border border-secondary/20 py-1 px-2 rounded-md transition-all">
+<span class="material-icons-outlined text-sm">replay</span> Re-collection
+                                        </button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-4 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">UR-1105-Z</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Patient: Robert Miller (PID-1025)</span>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-warning/10 text-warning text-[10px] font-bold rounded border border-warning/20">URGENT</span>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<select class="w-full text-xs font-medium bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md focus:ring-primary focus:border-primary">
+<option selected="" value="collected">Collected</option>
+<option value="received">Received</option>
+<option value="in-process">In-Process</option>
+<option value="completed">Completed</option>
+</select>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Tech:</span>
+<button class="text-xs border border-dashed border-slate-300 dark:border-slate-600 px-2 py-1 rounded hover:border-primary hover:text-primary transition-all flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">add_circle_outline</span> Assign
+                                            </button>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Path:</span>
+<button class="text-xs border border-dashed border-slate-300 dark:border-slate-600 px-2 py-1 rounded hover:border-primary hover:text-primary transition-all flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">add_circle_outline</span> Assign
+                                            </button>
+</div>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<input class="flex-1 text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Override TAT (hrs)" type="text"/>
+<span class="material-icons-outlined text-slate-300 text-sm">schedule</span>
+</div>
+<input class="w-full text-[11px] bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-md py-1 px-2" placeholder="Add delay reason..." type="text"/>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Flow Override</span>
+<label class="relative inline-flex items-center cursor-pointer scale-75">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="text-[10px] bg-primary/10 text-primary border border-primary/30 py-1 rounded font-bold uppercase hover:bg-primary hover:text-white transition-all">Change Status</button>
+</div>
+</td>
+<td class="px-4 py-4">
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-danger bg-danger/10 hover:bg-danger hover:text-white border border-danger/20 py-1 px-2 rounded-md transition-all">
+<span class="material-icons-outlined text-sm">block</span> Approve Reject
+                                        </button>
+<button class="flex items-center justify-center gap-1 text-[11px] font-bold text-secondary bg-secondary/10 hover:bg-secondary hover:text-white border border-secondary/20 py-1 px-2 rounded-md transition-all">
+<span class="material-icons-outlined text-sm">replay</span> Re-collection
+                                        </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 flex items-center justify-between">
+<p class="text-xs text-slate-500 font-medium">Showing 1 to 10 of 1,284 entries</p>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-icons-outlined">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">2</button>
+<button class="w-8 h-8 rounded text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">3</button>
+<span class="text-slate-400 mx-1">...</span>
+<button class="w-8 h-8 rounded text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">128</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 right-6 z-20 group">
+<div class="absolute -top-12 right-0 bg-danger text-white px-3 py-1 rounded-md text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            8 Critical Escalations Pending!
+        </div>
+<button class="w-14 h-14 bg-danger text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform focus:ring-4 focus:ring-danger/20 ring-offset-2 dark:ring-offset-slate-900">
+<span class="material-icons-outlined text-2xl animate-bounce">priority_high</span>
+</button>
+</div>
+
+</body></html>
