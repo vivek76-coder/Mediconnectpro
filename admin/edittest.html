@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Test Modification Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<main class="flex-1 flex flex-col max-w-[1400px] mx-auto w-full px-4 lg:px-10 py-8">
+<!-- Patient Profile Header -->
+<div class="flex flex-col md:flex-row items-center gap-6 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-8 shadow-sm">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24 border-4 border-slate-50 dark:border-slate-800 shadow-sm" data-alt="Patient profile headshot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOvabPS7LtvECNyslr-H8mXRHLooTwEuabCfCWyaD4AwF1FapMQRVx9WqxcDH8DhuhPlTfZ3Lm0VK2gvD-satK93UYlhALj5rLfd-RJaQTx9DcEXSizg9aR-K_vEGDO7Jdy38imoZOF6lS4rlFvmxxsml06tUesfGU9A1IB26mrwE5Wo5vtN0RA3YNNAjgtZY2AZOWObAeYPcd0AJUlrd5cuzECXEJBrjPopJCV44Q7wz1SBQz74ogEEkrjYLK_3Fl-rfFJLakXqUe");'></div>
+<div class="absolute bottom-0 right-0 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full w-5 h-5"></div>
+</div>
+<div class="flex flex-col text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-2 mb-1">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">John Doe</h1>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">Active Patient</span>
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 text-slate-500 dark:text-slate-400 text-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">id_card</span>
+<span class="font-medium">PAT-88291</span>
+</div>
+<div class="flex items-center gap-1.5 border-l border-slate-300 dark:border-slate-700 pl-4">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>45 years old</span>
+</div>
+<div class="flex items-center gap-1.5 border-l border-slate-300 dark:border-slate-700 pl-4">
+<span class="material-symbols-outlined text-lg">wc</span>
+<span>Male</span>
+</div>
+<div class="flex items-center gap-1.5 border-l border-slate-300 dark:border-slate-700 pl-4 text-red-500">
+<span class="material-symbols-outlined text-lg">bloodtype</span>
+<span class="font-semibold">O+ (Positive)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-xl">print</span>
+                        Print ID
+                    </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-semibold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-xl">add</span>
+                        New Order
+                    </button>
+</div>
+</div>
+<!-- Main Test Management Table Section -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<div class="px-6 py-5 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/30">
+<div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold">Test&nbsp;Management</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-6 py-2 py-1.5 bg-primary text-white text-lg font-semibold dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all " onclick="enable()">Edit&nbsp;Test</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider bg-slate-50 dark:bg-slate-800/50">
+<th class="px-6 py-4">Test Name &amp; Category</th>
+<th class="px-6 py-4">Date Requested</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Billing Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800" disabled>
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-slate-100 font-semibold text-sm">Complete Blood Count (CBC)</span>
+<span class="text-slate-400 text-xs mt-0.5">Hematology • Prof. #HEM-291</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-700 dark:text-slate-300 text-sm">24 Oct 2023</span>
+<span class="text-slate-400 text-xs">09:30 AM</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                                        Collected
+                                    </span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                        Paid
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class=" font-semibold text-medium text-primary hover:text-primary/90 p-2 rounded-lg">remove</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-slate-100 font-semibold text-sm">Lipid Profile</span>
+<span class="text-slate-400 text-xs mt-0.5">Biochemistry • Prof. #BIO-012</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-700 dark:text-slate-300 text-sm">24 Oct 2023</span>
+<span class="text-slate-400 text-xs">09:30 AM</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                                        Processed
+                                    </span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class=" font-semibold text-medium text-primary hover:text-primary/90 p-2 rounded-lg">remove</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-slate-100 font-semibold text-sm">HbA1c (Glycated Hemoglobin)</span>
+<span class="text-slate-400 text-xs mt-0.5">Endocrinology • Prof. #END-442</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-slate-700 dark:text-slate-300 text-sm">23 Oct 2023</span>
+<span class="text-slate-400 text-xs">02:15 PM</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Reported
+                                    </span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+                                        Insurance
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right" disabled>
+<div class="flex justify-end gap-2">
+<button class=" font-semibold text-medium text-primary hover:text-primary/90 p-2 rounded-lg"s>remove</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Add-on Section Footer -->
+<div class="p-6 bg-slate-50 dark:bg-slate-800/40 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 p-2 rounded-full text-primary">
+<span class="material-symbols-outlined">add_circle</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-bold text-sm">Quick Add-on</p>
+<p class="text-slate-500 text-xs">Instantly add a new test to the existing collection order #PAT-88291</p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="flex-1 sm:w-64">
+<select class="form-select w-full border-slate-200 dark:border-slate-700 dark:bg-slate-800 rounded-lg text-sm focus:ring-primary focus:border-primary" disabled>
+<option>Select test to add...</option>
+<option>Vitamin D3</option>
+<option>Uric Acid</option>
+<option>TSH (Thyroid Stimulating Hormone)</option>
+</select>
+</div>
+<button class="bg-primary text-white text-sm font-bold px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                Confirm Add-on
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    var tabletbody = document.querySelector('tbody')
+     var select = document.querySelector('select')
+    function enable(){
+     select.removeAttribute('disabled')
+       tabletbody.removeAttribute('disabled')
+       
+    }
+
+</script>
+</body>
+</html>

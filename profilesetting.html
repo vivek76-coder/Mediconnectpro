@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile and Lab Settings | Pathology Lab MS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Header -->
+<div class="p-8 max-w-5xl w-full mx-auto space-y-8">
+<!-- User Profile Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full bg-cover bg-center ring-4 ring-primary/10" data-alt="High resolution profile picture of lab staff" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXc-bgFgKVtNiZaIa4SXdkyLg7ugBrtj0T263CW-v9ZgAlbohwimYnhckppoJveVFPl1hbVdreBmpPCc_t5T86-63Ovb9umuzZQApsyIR44J3MXdlWyYOT_bFZUNpQJH2YF73a2IYAEdNcPxREN88Igi39t2onwfAkduZuR1dj3krE9dZ0JXFeFH3k8TPyM4EYFSo6HsKDUv81tbkAHaMEBoqvuoS2hX8MU8Ohni5mF4nDIDAGXxc7w7aWXciLV38_diMFbg-yp2M9')"></div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary/90">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-3">
+<h2 class="text-2xl font-bold">John Doe</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">User</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-600 dark:text-slate-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg opacity-60">mail</span>
+<span class="text-sm">john.doe@pathology.com</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg opacity-60">call</span>
+<span class="text-sm">+1 234 567 890</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg opacity-60">location_on</span>
+<span class="text-sm">Main Campus, West Wing</span>
+</div>
+</div>
+</div>
+<button class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold rounded-lg transition-colors">
+                            Edit Profile
+                        </button>
+</div>
+</section>
+<!-- Lab Settings Form -->
+<section class="space-y-6  bg-white shadow-md p-8">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+<div>
+<h3 class="text-lg font-bold">Pathology details</h3>
+<p class="text-sm text-slate-500">Configure your laboratory identification and accreditation details.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Laboratory Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="City Pathology Central"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">License Number</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="LIC-9988221-X"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Physical Address</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="742 Medical District Blvd, Suite 10, Metropolis"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Accreditation ID</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="CLIA-550-990-22"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Primary Dept. Contact</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="dept.admin@pathology.com"/>
+</div>
+</div>
+</section>
+<!--User details-->
+<section class="space-y-6 bg-white shadow-md p-8">
+    <div class="flex  justify-between border-b border-slate-200">
+        <h3 class="text-xl font-bold ">User details</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2 ">
+            <label for="firstname" class="text-sm font-semibold text-slate-700">First-Name</label>
+            <input type="text" name="firstname" id="firstname" class="w-full rounded-lg border-slate-200 focus:border-primary focus:ring-primary">
+            <label for="lastname" class="text-sm font-semibold text-slate-700">Last-Name</label>
+            <input type="text" name="lastname" id="lastname" class="w-full rounded-lg border-slate-200 focus:border-primary focus:ring-primary">
+        </div>
+    </div>
+</section>
+<!-- Action Footer -->
+<div class="flex items-center justify-end gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
+<button class="px-6 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        Discard Changes
+                    </button>
+<button class="px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg shadow-sm">
+                        Save Changes
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<button class="ml-2 text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+</body></html>
