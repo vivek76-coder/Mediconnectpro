@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Profile and Lab Settings | Pathology Lab MS</title>
+<title>User Profile | Pathology Lab MS</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -37,15 +35,12 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
 <div class="flex h-screen overflow-hidden">
-<!-- Main Content Area -->
 <main class="flex-1 flex flex-col overflow-y-auto">
-<!-- Header -->
-<div class="p-8 max-w-5xl w-full mx-auto space-y-8">
-<!-- User Profile Section -->
+<div class="p-8 max-w-5xl w-full mx-auto space-y-6">
 <section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
 <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
 <div class="relative group">
-<div class="w-32 h-32 rounded-full bg-cover bg-center ring-4 ring-primary/10" data-alt="High resolution profile picture of lab staff" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXc-bgFgKVtNiZaIa4SXdkyLg7ugBrtj0T263CW-v9ZgAlbohwimYnhckppoJveVFPl1hbVdreBmpPCc_t5T86-63Ovb9umuzZQApsyIR44J3MXdlWyYOT_bFZUNpQJH2YF73a2IYAEdNcPxREN88Igi39t2onwfAkduZuR1dj3krE9dZ0JXFeFH3k8TPyM4EYFSo6HsKDUv81tbkAHaMEBoqvuoS2hX8MU8Ohni5mF4nDIDAGXxc7w7aWXciLV38_diMFbg-yp2M9')"></div>
+<div class="w-32 h-32 rounded-full bg-cover bg-center ring-4 ring-primary/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXc-bgFgKVtNiZaIa4SXdkyLg7ugBrtj0T263CW-v9ZgAlbohwimYnhckppoJveVFPl1hbVdreBmpPCc_t5T86-63Ovb9umuzZQApsyIR44J3MXdlWyYOT_bFZUNpQJH2YF73a2IYAEdNcPxREN88Igi39t2onwfAkduZuR1dj3krE9dZ0JXFeFH3k8TPyM4EYFSo6HsKDUv81tbkAHaMEBoqvuoS2hX8MU8Ohni5mF4nDIDAGXxc7w7aWXciLV38_diMFbg-yp2M9')"></div>
 <button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary/90">
 <span class="material-symbols-outlined text-sm">photo_camera</span>
 </button>
@@ -53,7 +48,7 @@
 <div class="flex-1 space-y-2">
 <div class="flex items-center gap-3">
 <h2 class="text-2xl font-bold">John Doe</h2>
-<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">User</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">Lab Manager</span>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-600 dark:text-slate-400">
 <div class="flex items-center gap-2">
@@ -75,13 +70,10 @@
                         </button>
 </div>
 </section>
-<!-- Lab Settings Form -->
-<section class="space-y-6  bg-white shadow-md p-8">
-<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 space-y-6">
 <div>
 <h3 class="text-lg font-bold">Pathology details</h3>
 <p class="text-sm text-slate-500">Configure your laboratory identification and accreditation details.</p>
-</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
@@ -106,35 +98,82 @@
 </div>
 </div>
 </section>
-<!--User details-->
-<section class="space-y-6 bg-white shadow-md p-8">
-    <div class="flex  justify-between border-b border-slate-200">
-        <h3 class="text-xl font-bold ">User details</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-2 ">
-            <label for="firstname" class="text-sm font-semibold text-slate-700">First-Name</label>
-            <input type="text" name="firstname" id="firstname" class="w-full rounded-lg border-slate-200 focus:border-primary focus:ring-primary">
-            <label for="lastname" class="text-sm font-semibold text-slate-700">Last-Name</label>
-            <input type="text" name="lastname" id="lastname" class="w-full rounded-lg border-slate-200 focus:border-primary focus:ring-primary">
-        </div>
-    </div>
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 space-y-6">
+<div>
+<h3 class="text-lg font-bold">User details</h3>
+<p class="text-sm text-slate-500">Manage individual employee profile information and organizational placement.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Full Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="John Doe"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Designation</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="Senior Pathologist"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Employee ID</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary" type="text" value="EMP-10293"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Department</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary">
+<option>Clinical Chemistry</option>
+<option>Hematology</option>
+<option>Microbiology</option>
+<option>Molecular Diagnostics</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Work Shift</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:border-primary focus:ring-primary">
+<option>Morning (08:00 - 16:00)</option>
+<option>Evening (16:00 - 00:00)</option>
+<option>Night (00:00 - 08:00)</option>
+</select>
+</div>
+</div>
 </section>
-<!-- Action Footer -->
-<div class="flex items-center justify-end gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 space-y-6">
+<div>
+<h3 class="text-lg font-bold">Security &amp; Login</h3>
+<p class="text-sm text-slate-500">Manage your password and protect your account with additional security layers.</p>
+</div>
+<div class="divide-y divide-slate-200 dark:divide-slate-800">
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<p class="text-sm font-semibold">Change Password</p>
+<p class="text-xs text-slate-500">Update your account password regularly to stay secure.</p>
+</div>
+<button class="px-4 py-2 text-sm font-semibold text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+                                Update Password
+                            </button>
+</div>
+<div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<p class="text-sm font-semibold">Two-Factor Authentication</p>
+<p class="text-xs text-slate-500">Add an extra layer of security by requiring a verification code.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-medium text-slate-500 mr-2">Disabled</span>
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out bg-slate-200 dark:bg-slate-700 focus:outline-none">
+<span class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="flex items-center justify-end gap-4 pt-6 pb-12 border-t border-slate-200 dark:border-slate-800">
 <button class="px-6 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
-                        Discard Changes
+                        Cancel
                     </button>
 <button class="px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg shadow-sm">
-                        Save Changes
+                        Save All Changes
                     </button>
 </div>
 </div>
 </main>
-</div>
-<button class="ml-2 text-slate-400 hover:text-slate-600">
-<span class="material-symbols-outlined text-base">close</span>
-</button>
-</div>
-</div>
-</body></html>
+</body>
+</html>
