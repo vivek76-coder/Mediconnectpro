@@ -53,146 +53,157 @@
     <main class="max-w-7xl mx-auto px-4 md:px-10 lg:px-20 py-8">
         <!-- Page Heading -->
         <div class="flex mb-8 justify-center">
-            <h1 class=" text-[#111418] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+            <h1
+                class=" bg-gradient-to-r from-teal-700 via-teal-500 to-teal-400 bg-clip-text text-transparent dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
                 Mediconnectpro</h1>
         </div>
         <!-- Main Content Grid -->
+
         <div class="grid grid-cols-1 gap-8 items-start">
             <!-- Left Column: Booking Form -->
             <div class="lg:col-span-2 space-y-8">
-                <!-- Form Section 1: Patient Details -->
-                <section
-                    class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-                    <div class="flex items-center gap-3 mb-6">
-                        <h2 class="text-[#111418] dark:text-white text-2xl font-bold">Pathology&nbsp;Information</h2>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="flex flex-col gap-1.5">
-                            <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Full Name</label>
-                            <input
-                                class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
-                                placeholder="Johnathan Smith" type="text" />
+                <form action="#" method="post" class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                    <!-- Form Section 1: Patient Details -->
+                    <section>
+                        <div class="flex items-center gap-3 mb-6">
+                            <h2 class="text-teal-600 dark:text-white text-2xl font-bold">Pathology&nbsp;Information</h2>
                         </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Date of Birth</label>
-                            <input
-                                class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
-                                type="date" />
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Full Name</label>
+                                <input
+                                    class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
+                                    placeholder="Johnathan Smith" type="text" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Date of
+                                    Birth</label>
+                                <input
+                                    class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
+                                    type="date" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Gender</label>
+                                <select
+                                    class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Phone
+                                    Number</label>
+                                <input
+                                    class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
+                                    placeholder="+1 (555) 000-0000" type="tel" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Phone
+                                    Number</label>
+                                <input
+                                    class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
+                                    placeholder="+1 (555) 000-0000" type="tel" />
+                            </div>
                         </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Gender</label>
-                            <select
-                                class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary">
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Phone Number</label>
-                            <input
-                                class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
-                                placeholder="+1 (555) 000-0000" type="tel" />
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label class="text-sm font-semibold text-[#111418] dark:text-gray-300">Phone Number</label>
-                            <input
-                                class="rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary"
-                                placeholder="+1 (555) 000-0000" type="tel" />
-                        </div>
-                    </div>
-                </section>
-                <!-- Facility Information -->
+                    </section>
+                    <!-- Facility Information -->
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 shadow-md rounded bg-white p-4">
-                    <div class="space-y-8">
-                        <div>
-                            <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2 mb-6">
-                                <span class="w-1.5 h-6 bg-[var(--primary-green)] rounded-full"></span>
-                                Staff&nbsp;Information
-                            </h2>
-                            <div class="space-y-5">
-                                <div class="space-y-1.5">
-                                    <label class="block text-sm font-semibold text-gray-500"
-                                        for="pathology_name">Pathology Name</label>
-                                    <input
-                                        class="w-full px-4 py-3 rounded-xl  border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
-                                        id="pathology_name" name="pathology_name" placeholder="E.g. City Diagnostic Lab"
-                                        type="text" />
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 p-4">
+                        <div class="space-y-8">
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2 mb-6">
+                                    <span class="w-1.5 h-6 bg-[var(--primary-green)] rounded-full"></span>
+                                    Staff&nbsp;Information
+                                </h2>
+                                <div class="space-y-5">
                                     <div class="space-y-1.5">
                                         <label class="block text-sm font-semibold text-gray-500"
-                                            for="license_number">License Number</label>
+                                            for="pathology_name">Pathology Name</label>
                                         <input
                                             class="w-full px-4 py-3 rounded-xl  border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
-                                            id="license_number" name="license_number" placeholder="REG-123456"
-                                            type="text" />
+                                            id="pathology_name" name="pathology_name"
+                                            placeholder="E.g. City Diagnostic Lab" type="text" />
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="space-y-1.5">
+                                            <label class="block text-sm font-semibold text-gray-500"
+                                                for="license_number">License Number</label>
+                                            <input
+                                                class="w-full px-4 py-3 rounded-xl  border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
+                                                id="license_number" name="license_number" placeholder="REG-123456"
+                                                type="text" />
+                                        </div>
+                                        <div class="space-y-1.5">
+                                            <label class="block text-sm font-semibold text-gray-500"
+                                                for="staff_count">Staff
+                                                Count</label>
+                                            <input
+                                                class="w-full px-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
+                                                id="staff_count" name="staff_count" placeholder="0" type="number" />
+                                        </div>
                                     </div>
                                     <div class="space-y-1.5">
-                                        <label class="block text-sm font-semibold text-gray-500" for="staff_count">Staff
-                                            Count</label>
+                                        <label class="block text-sm font-semibold text-gray-500" for="shop_number">Shop
+                                            Number</label>
                                         <input
                                             class="w-full px-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
-                                            id="staff_count" name="staff_count" placeholder="0" type="number" />
-                                    </div>
-                                </div>
-                                <div class="space-y-1.5">
-                                    <label class="block text-sm font-semibold text-gray-500" for="shop_number">Shop
-                                        Number</label>
-                                    <input
-                                        class="w-full px-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
-                                        id="shop_number" name="shop_number" placeholder="Enter shop no." type="text" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space-y-8">
-                        <div>
-                            <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2 mb-6">
-                                <span class="w-1.5 h-6 bg-orange-400 rounded-full"></span>
-                                Location &amp; Oversight
-                            </h2>
-                            <div class="space-y-5">
-                                <div class="space-y-1.5">
-                                    <label class="block text-sm font-semibold text-gray-500" for="address">Address of
-                                        Shop</label>
-                                    <textarea
-                                        class="w-full px-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400   transition-all outline-none resize-none"
-                                        id="address" name="address" placeholder="Full physical address"
-                                        rows="4"></textarea>
-                                </div>
-                                <div class="space-y-1.5">
-                                    <label class="block text-sm font-semibold text-gray-500" for="ref_doctor">Reference
-                                        Doctor</label>
-                                    <div class="relative">
-                                        <span
-                                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">medical_services</span>
-                                        <input
-                                            class="w-full pl-11 pr-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
-                                            id="ref_doctor" name="ref_doctor" placeholder="Dr. John Smith"
+                                            id="shop_number" name="shop_number" placeholder="Enter shop no."
                                             type="text" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Assistance Card -->
-                <section
-                class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-                    <div
-                        class="bg-gray-100 dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <p class="text-sm font-bold text-[#111418] dark:text-white mb-2">Need Help Booking?</p>
-                        <p class="text-xs text-[#617589] dark:text-gray-400 mb-4">Our healthcare advisors are available
-                            24/7 to assist with test selection and scheduling.</p>
-                        <button class="text-primary text-sm font-bold flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[18px]">call</span>
-                            <span>Mediconnectpro</span>
-                        </button>
-                </section>
+                        <div class="space-y-8">
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 flex items-center gap-2 mb-6">
+                                    <span class="w-1.5 h-6 bg-orange-400 rounded-full"></span>
+                                    Location &amp; Oversight
+                                </h2>
+                                <div class="space-y-5">
+                                    <div class="space-y-1.5">
+                                        <label class="block text-sm font-semibold text-gray-500" for="address">Address
+                                            of
+                                            Shop</label>
+                                        <textarea
+                                            class="w-full px-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400   transition-all outline-none resize-none"
+                                            id="address" name="address" placeholder="Full physical address"
+                                            rows="4"></textarea>
+                                    </div>
+                                    <div class="space-y-1.5 pt-4">
+                                        <label class="block text-sm font-semibold text-gray-500"
+                                            for="ref_doctor">Reference
+                                            Doctor</label>
+                                        <div class="relative">
+                                            <span
+                                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl">medical_services</span>
+                                            <input
+                                                class="w-full pl-11 pr-4 py-3 rounded-xl border-gray-200 text-gray-900 placeholder-gray-400 transition-all outline-none"
+                                                id="ref_doctor" name="ref_doctor" placeholder="Dr. John Smith"
+                                                type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Submit" class="col-span-2 bg-teal-500 text-white px-4 py-2 rounded-xl mt-24 w-64 mx-auto hover:bg-teal-600 transition-all duration-300 cursor-pointer">
+                </form>
             </div>
-</div>
+            <!-- Assistance Card -->
+            <section
+                class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="bg-gray-100 dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm font-bold text-[#111418] dark:text-white mb-2">Need Help Booking?</p>
+                    <p class="text-xs text-[#617589] dark:text-gray-400 mb-4">Our healthcare advisors are
+                        available
+                        24/7 to assist with test selection and scheduling.</p>
+                    <button class="text-primary text-sm font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">call</span>
+                        <span>Mediconnectpro</span>
+                    </button>
+            </section>
+        </div>
+        </div>
     </main>
 </body>
 
