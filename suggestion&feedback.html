@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Laboratory Contact &amp; Support Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <!--logo-->
+    <header class="relative bg-white dark:bg-slate-900 pt-16 pb-8 overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-primary rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span
+                    class="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">Suggestions
+                    & Feedback</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                    Mediconnect <span class="text-primary">Suggestions </span></h1>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Section 1: Top Feedback -->
+            <div class="lg:col-span-4 space-y-6">
+                <div
+                    class="bg-white dark:bg-slate-800 mt-24 p-8 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700">
+                    <h3 class="text-xl text-primary font-bold mb-6 flex items-center gap-2">
+                        Top Feedback
+                    </h3>
+                    <div class="space-y-8">
+                        <!-- Feedback Card 1 -->
+                        <div
+                            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                                        JD
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-slate-900 dark:text-white">Johnathan Doe</h3>
+                                        <p class="text-sm text-slate-400 dark:text-slate-500">October 24, 2023 • Routine
+                                            Bloodwork</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                The wait time was incredibly short today. The phlebotomist was very professional and
+                                made the blood draw painless. Results were delivered via the portal within 4 hours.
+                                Highly recommended!
+                            </p>
+                        </div>
+                        <!-- Feedback Card 2 -->
+                        <div
+                            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                                        SC
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-slate-900 dark:text-white">Sarah Chen</h3>
+                                        <p class="text-sm text-slate-400 dark:text-slate-500">October 23, 2023 • Allergy
+                                            Panel</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons text-slate-200 dark:text-slate-700">star</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Great service, but the waiting room was a bit crowded. It would be helpful if there was
+                                more seating available during the morning rush. The technical staff was excellent
+                                though.
+                            </p>
+                        </div>
+                        <!-- Feedback Card 3 -->
+                        <div
+                            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                                        MR
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-slate-900 dark:text-white">Michael Rodriguez</h3>
+                                        <p class="text-sm text-slate-400 dark:text-slate-500">October 22, 2023 •
+                                            COVID-19 PCR</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Quickest PCR test I've had. The staff wore full PPE and followed all safety protocols
+                                strictly, which made me feel very safe. Got my travel clearance certificate in time.
+                            </p>
+                        </div>
+                        <!-- Feedback Card 4 -->
+                        <div
+                            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                                        EW
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-slate-900 dark:text-white">Elena Walsh</h3>
+                                        <p class="text-sm text-slate-400 dark:text-slate-500">October 21, 2023 • Lipid
+                                            Profile</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons text-slate-200 dark:text-slate-700">star</span>
+                                    <span class="material-icons text-slate-200 dark:text-slate-700">star</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                The lab results were accurate and fast, but I had some trouble using the mobile app to
+                                book my appointment. The technical support team helped me out eventually.
+                            </p>
+                        </div>
+                        <!-- Feedback Card 5 -->
+                        <div
+                            class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary font-bold text-lg">
+                                        DM
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-slate-900 dark:text-white">David Miller</h3>
+                                        <p class="text-sm text-slate-400 dark:text-slate-500">October 21, 2023 • Glucose
+                                            Test</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-primary">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Very impressed with the cleanliness of the facility. Everything was organized, and I was
+                                in and out in less than 15 minutes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Section 2: Location Map & Operating Hours -->
+            <div class="lg:col-span-8 flex flex-col gap-8">
+                <!-- Section 3: Support & Inquiries Form -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl mt-24 shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 p-8">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <span class="material-icons text-primary">question_answer</span>
+                            Feedback & Suggestion
+                        </h3>
+                    </div>
+                    <form action="#" class="grid grid-cols-1 md:grid-cols-2 gap-6" method="POST">
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Full Name</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="John Doe" type="text" />
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="john.doe@hospital.com" type="email" />
+                        </div>
+                        <div class="md:col-span-2 space-y-1.5">
+                            <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Your Message</label>
+                            <textarea
+                                class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-900 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="Describe your inquiry in detail..." rows="4"></textarea>
+                        </div>
+                        <div class="md:col-span-2 flex items-center justify-center pt-4">
+                            <button
+                                class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center gap-2"
+                                type="submit">
+                                <span class="material-icons text-sm">send</span>
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
